@@ -4,7 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 class Counter extends Component {
   state = {
-    count: 1,
+    count: 0,
+    tags: ['tag1', 'tag2', 'tag3'],
     imageUrl: "https://picsum.photos/200",
   };
 
@@ -27,6 +28,9 @@ class Counter extends Component {
         <button className="btn btn-secondary btn-sm">Increment</button>
         <br />
         <br />
+        <ul>
+          {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
+        </ul>
         <img src={this.state.imageUrl} alt="" />
       </React.Fragment>
     );
