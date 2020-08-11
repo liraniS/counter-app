@@ -25,9 +25,18 @@ class Counter extends Component {
     );
   }
 
-  handleIncrement() {
-    console.log("Increment clicked", this);
+  // ---------another way for binding event handlers:--------- //
+  /*
+  constructor() {
+    super();
+    //console.log("constructor", this);
+    this.handleIncrement = this.handleIncrement.bind(this);
   }
+  */
+
+  handleIncrement = () => {
+    console.log("Increment clicked", this);
+  };
 
   render() {
     let classes = this.getBadgeClasses();
