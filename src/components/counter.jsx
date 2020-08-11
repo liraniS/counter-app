@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class Counter extends Component {
   state = {
     count: 0,
-    tags: ['tag1', 'tag2', 'tag3'],
+    tags: [], //["tag1", "tag2", "tag4"],
     imageUrl: "https://picsum.photos/200",
   };
 
@@ -13,6 +13,17 @@ class Counter extends Component {
     fontSize: 10,
     fontWeight: "bold",
   };
+
+  renderTags() {
+    if (this.state.tags.length === 0) return <p>There are no tags!</p>;
+    return (
+      <ul>
+        {this.state.tags.map((tag) => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
     let classes = this.getBadgeClasses();
@@ -28,9 +39,10 @@ class Counter extends Component {
         <button className="btn btn-secondary btn-sm">Increment</button>
         <br />
         <br />
-        <ul>
-          {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
-        </ul>
+        <div>
+          {this.state.tags.length === 0 && "Please create a new tag!"}
+          {this.renderTags()}
+        </div>
         <img src={this.state.imageUrl} alt="" />
       </React.Fragment>
     );
