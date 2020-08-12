@@ -44,9 +44,11 @@ class Counter extends Component {
     let product = 1;
     return (
       <React.Fragment>
+
         <Badge variant="warning" className={classes} style={this.styles}>
           {this.formatCount()}
         </Badge>
+
         <span className={classes} style={this.styles}>
           {this.formatCount()}
         </span>
